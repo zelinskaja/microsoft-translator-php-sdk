@@ -2,6 +2,10 @@
 
 namespace Wowmaking\MicrosoftTranslator\Entity;
 
+/**
+ * Class Text
+ * @package Wowmaking\MicrosoftTranslator\Entity
+ */
 class Text
 {
 

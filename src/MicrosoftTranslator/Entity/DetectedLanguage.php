@@ -2,6 +2,10 @@
 
 namespace Wowmaking\MicrosoftTranslator\Entity;
 
+/**
+ * Class DetectedLanguage
+ * @package Wowmaking\MicrosoftTranslator\Entity
+ */
 class DetectedLanguage
 {
     /**
