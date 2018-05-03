@@ -1,0 +1,25 @@
+{
+    "name": "wowmaking/yii-microsoft-translator-API",
+    "type": "library",
+    "description": "Microsoft Translator API V3 PHP SDK",
+    "keywords": ["translate","Microsoft Translator", "Bing"],
+    "homepage": "https://gitlab.com/wowmaking/TM/yii-microsoft-translator-API",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wowmaking",
+            "email": "nfo@wowmaking.net",
+            "homepage": "http://wowmaking.net"
+        }
+    ],
+    "require": {
+        "guzzle/guzzle": "^3.9"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Wowmaking\\": "src/"
+        }
+    }
+}
