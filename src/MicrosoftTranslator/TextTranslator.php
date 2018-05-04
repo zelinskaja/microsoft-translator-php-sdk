@@ -43,9 +43,9 @@ class TextTranslator
     {
         $result = $this->client
             ->post(
-                $this->getUrl('translate', ['to' => ['RU', 'DE']]),
+                $this->getUrl('translate', compact('to')),
                 $this->getHeaders(),
-                json_encode([['text' => 'hi'], ['text' => 'cat']])
+                json_encode([compact('text')])
             )
             ->send()
             ->getBody();

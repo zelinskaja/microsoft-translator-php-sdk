@@ -1,5 +1,5 @@
 {
-    "name": "wowmaking/yii-microsoft-translator-API",
+    "name": "wowmaking/microsoft-translator-php-sdk",
     "type": "library",
     "description": "Microsoft Translator API V3 PHP SDK",
     "keywords": ["translate","Microsoft Translator", "Bing"],
@@ -8,7 +8,7 @@
     "authors": [
         {
             "name": "Wowmaking",
-            "email": "nfo@wowmaking.net",
+            "email": "info@wowmaking.net",
             "homepage": "http://wowmaking.net"
         }
     ],
