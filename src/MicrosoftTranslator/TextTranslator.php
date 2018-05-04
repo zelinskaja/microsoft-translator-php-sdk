@@ -77,6 +77,11 @@ class TextTranslator
         return json_decode($result, true);
     }
 
+    /**
+     * @param string $location
+     * @param array $params
+     * @return string
+     */
     protected function getUrl(string $location, array $params = []) : string
     {
         return self::URL . $location . '?' . http_build_query(array_merge(['api-version' => self::VERSION], $params));
