@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Microsoft Translator API V3 PHP SDK",
     "keywords": ["translate","Microsoft Translator", "Bing"],
-    "homepage": "https://gitlab.com/wowmaking/TM/yii-microsoft-translator-API",
+    "homepage": "https://github.com/wowmaking/microsoft-translator-php-sdk",
     "license": "MIT",
     "authors": [
         {
