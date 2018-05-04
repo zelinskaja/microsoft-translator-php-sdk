@@ -8,7 +8,6 @@ namespace Wowmaking\MicrosoftTranslator\Entity;
  */
 class Text
 {
-
     /**
      * @var string
      */
@@ -86,7 +85,6 @@ class Text
         return $this;
     }
 
-
     /**
      * @return DetectedLanguage
      */
@@ -109,7 +107,7 @@ class Text
     /**
      * @return string
      */
-    public function __toString() : string
+    public function __toString(): string
     {
         return $this->text;
     }

@@ -39,7 +39,7 @@ class TextTranslator
      * @param string $from
      * @return Text
      */
-    public function translate(string $text, string $to, string $from = '') : Text
+    public function translate(string $text, string $to, string $from = ''): Text
     {
         $result = $this->client
             ->post(
@@ -68,7 +68,7 @@ class TextTranslator
     /**
      * @return array
      */
-    public function getLanguages() : array
+    public function getLanguages(): array
     {
         $result = $this->client
             ->get($this->getUrl('languages'))
@@ -83,7 +83,7 @@ class TextTranslator
      * @param array $params
      * @return string
      */
-    protected function getUrl(string $location, array $params = []) : string
+    protected function getUrl(string $location, array $params = []): string
     {
         return self::URL . $location . '?' . http_build_query(array_merge(['api-version' => self::VERSION], $params));
     }
@@ -91,7 +91,7 @@ class TextTranslator
     /**
      * @return array
      */
-    protected function getHeaders() : array
+    protected function getHeaders(): array
     {
         return [
             'Ocp-Apim-Subscription-Key' => $this->key,
