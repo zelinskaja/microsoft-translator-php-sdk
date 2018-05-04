@@ -3,8 +3,9 @@
 namespace Wowmaking\MicrosoftTranslator;
 
 use Guzzle\Http\Client;
-use Wowmaking\MicrosoftTranslator\Entity\DetectedLanguage;
-use Wowmaking\MicrosoftTranslator\Entity\Text;
+use Wowmaking\MicrosoftTranslator\Entity\{
+    DetectedLanguage, Text
+};
 
 class TextTranslator
 {
