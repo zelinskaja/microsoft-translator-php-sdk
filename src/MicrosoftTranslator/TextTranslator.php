@@ -69,7 +69,7 @@ class TextTranslator
             )
             ->send();
 
-        return new Response($response, new TranslateArrayTransformer($text, $from));
+        return new Response($response, new TranslateArrayTransformer(array_values($text), $from));
     }
 
     /**
