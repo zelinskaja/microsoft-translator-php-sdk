@@ -36,6 +36,17 @@ class Response
     }
 
     /**
+     * @param ITransformer $transformer
+     * @return $this
+     */
+    public function setTransformer(ITransformer $transformer)
+    {
+        $this->transformer = $transformer;
+
+        return $this;
+    }
+
+    /**
      * @return GuzzleResponse
      */
     public function response(): GuzzleResponse

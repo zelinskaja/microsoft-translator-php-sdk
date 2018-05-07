@@ -13,6 +13,28 @@ use Wowmaking\MicrosoftTranslator\Entity\{
 class TranslateArrayTransformer implements ITransformer
 {
     /**
+     * @var array
+     */
+    protected $text = [];
+
+    /**
+     * @var string|null
+     */
+    protected $from = [];
+
+    /**
+     * TranslateArrayTransformer constructor.
+     *
+     * @param array $text
+     * @param string|null $from
+     */
+    public function __construct(array $text, string $from = null)
+    {
+        $this->text = $text;
+        $this->from = $from;
+    }
+
+    /**
      * @param array $data
      * @return Text
      */
@@ -23,7 +45,7 @@ class TranslateArrayTransformer implements ITransformer
          */
         $textCollection = new TextCollection();
 
-        foreach ($data as $item) {
+        foreach ($data as $key => $item) {
 
             /**
              * @var DetectedLanguage $detectedLanguage
@@ -39,12 +61,14 @@ class TranslateArrayTransformer implements ITransformer
             $text = new Text();
             $text->setDetectedLanguage($detectedLanguage);
 
-            foreach ($item->translations as $itemTranslation) {
+            foreach ($item->translations as $itemKey => $itemTranslation) {
                 /**
                  * @var Translation $translation
                  */
                 $translation = new Translation();
                 $translation
+                    ->setSource($this->text[$key])
+                    ->setFrom((string)$this->from)
                     ->setTo($itemTranslation->to)
                     ->setText($itemTranslation->text);
 

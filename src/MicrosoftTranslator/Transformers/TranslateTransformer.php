@@ -13,6 +13,28 @@ use Wowmaking\MicrosoftTranslator\Entity\{
 class TranslateTransformer implements ITransformer
 {
     /**
+     * @var string
+     */
+    protected $text;
+
+    /**
+     * @var string|null
+     */
+    protected $from;
+
+    /**
+     * TranslateTransformer constructor.
+     *
+     * @param string $text
+     * @param string|null $from
+     */
+    public function __construct(string $text, string $from = null)
+    {
+        $this->text = $text;
+        $this->from = $from;
+    }
+
+    /**
      * @param array $data
      * @return Text
      */
@@ -33,6 +55,8 @@ class TranslateTransformer implements ITransformer
          */
         $translation = new Translation();
         $translation
+            ->setSource($this->text)
+            ->setFrom((string)$this->from)
             ->setTo($array->translations[0]->to)
             ->setText($array->translations[0]->text);
 

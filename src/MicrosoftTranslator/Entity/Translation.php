@@ -11,6 +11,11 @@ class Translation implements IEntity
     /**
      * @var string
      */
+    protected $source;
+
+    /**
+     * @var string
+     */
     protected $text;
 
     /**
@@ -22,6 +27,25 @@ class Translation implements IEntity
      * @var string
      */
     protected $from;
+
+    /**
+     * @return string
+     */
+    public function getSource(): string
+    {
+        return $this->source;
+    }
+
+    /**
+     * @param string $source
+     * @return $this
+     */
+    public function setSource(string $source)
+    {
+        $this->source = $source;
+
+        return $this;
+    }
 
     /**
      * @return string

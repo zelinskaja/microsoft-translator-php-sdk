@@ -38,7 +38,7 @@ class TextTranslator
      * @param string $from
      * @return Response
      */
-    public function translate(string $text, string $to, string $from = ''): Response
+    public function translate(string $text, string $to, string $from = null): Response
     {
         $response = $this->client
             ->post(
@@ -48,7 +48,7 @@ class TextTranslator
             )
             ->send();
 
-        return new Response($response, new TranslateTransformer());
+        return new Response($response, new TranslateTransformer($text, $from));
     }
 
     /**
@@ -57,19 +57,19 @@ class TextTranslator
      * @param string $from
      * @return Response
      */
-    public function translateArray(array $text, array $to, string $from = ''): Response
+    public function translateArray(array $text, array $to, string $from = null): Response
     {
         $response = $this->client
             ->post(
-                $this->getUrl('translate', compact('to', 'from')),
+                $this->getUrl('translate', ['to' => array_values($to), 'from' => $from]),
                 $this->getHeaders(),
                 json_encode(array_map(function ($item) {
                     return ['text' => $item];
-                }, $text))
+                }, array_values($text)))
             )
             ->send();
 
-        return new Response($response, new TranslateArrayTransformer());
+        return new Response($response, new TranslateArrayTransformer($text, $from));
     }
 
     /**
