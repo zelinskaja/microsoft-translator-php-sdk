@@ -25,7 +25,7 @@ class TextCollection implements IEntity
     }
 
     /**
-     * @return array
+     * @return Text[]
      */
     public function getCollection(): array
     {
