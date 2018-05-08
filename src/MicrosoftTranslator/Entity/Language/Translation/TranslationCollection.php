@@ -1,14 +1,16 @@
 <?php
 
-namespace Wowmaking\MicrosoftTranslator\Entity;
+namespace Wowmaking\MicrosoftTranslator\Entity\Language\Translation;
 
-use Wowmaking\MicrosoftTranslator\Traits\ToArrayTrait;
+use Wowmaking\MicrosoftTranslator\{
+    Entity\IEntity, Traits\ToArrayTrait
+};
 
 /**
- * Class TextCollection
+ * Class TranslationCollection
  * @package Wowmaking\MicrosoftTranslator\Entity
  */
-class TextCollection implements IEntity
+class TranslationCollection implements IEntity
 {
     use ToArrayTrait;
 
@@ -29,7 +31,7 @@ class TextCollection implements IEntity
     }
 
     /**
-     * @return Text[]
+     * @return Translation[]
      */
     public function getCollection(): array
     {
@@ -37,10 +39,10 @@ class TextCollection implements IEntity
     }
 
     /**
-     * @param Text $text
+     * @param Translation $text
      * @return $this
      */
-    public function addCollection(Text $text)
+    public function addCollection(Translation $text)
     {
         array_push($this->collection, $text);
 

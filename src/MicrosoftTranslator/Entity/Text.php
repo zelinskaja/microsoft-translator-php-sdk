@@ -2,12 +2,16 @@
 
 namespace Wowmaking\MicrosoftTranslator\Entity;
 
+use Wowmaking\MicrosoftTranslator\Traits\ToArrayTrait;
+
 /**
  * Class Text
  * @package Wowmaking\MicrosoftTranslator\Entity
  */
 class Text implements IEntity
 {
+    use ToArrayTrait;
+
     /**
      * @var DetectedLanguage
      */
@@ -66,4 +70,5 @@ class Text implements IEntity
 
         return $this;
     }
+
 }

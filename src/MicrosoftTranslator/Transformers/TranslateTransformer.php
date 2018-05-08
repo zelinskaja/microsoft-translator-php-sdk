@@ -57,6 +57,7 @@ class TranslateTransformer implements ITransformer
         $translation
             ->setSource($this->text)
             ->setFrom((string)$this->from)
+            ->setDetectedFrom($array->detectedLanguage->language)
             ->setTo($array->translations[0]->to)
             ->setText($array->translations[0]->text);
 

@@ -69,6 +69,7 @@ class TranslateArrayTransformer implements ITransformer
                 $translation
                     ->setSource($this->text[$key])
                     ->setFrom((string)$this->from)
+                    ->setDetectedFrom($item->detectedLanguage->language)
                     ->setTo($itemTranslation->to)
                     ->setText($itemTranslation->text);
 

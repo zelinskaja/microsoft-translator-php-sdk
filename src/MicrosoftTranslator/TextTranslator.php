@@ -3,6 +3,7 @@
 namespace Wowmaking\MicrosoftTranslator;
 
 use Guzzle\Http\Client;
+use Wowmaking\MicrosoftTranslator\Transformers\LanguagesTransformer;
 use Wowmaking\MicrosoftTranslator\Transformers\TranslateArrayTransformer;
 use Wowmaking\MicrosoftTranslator\Transformers\TranslateTransformer;
 
@@ -73,16 +74,15 @@ class TextTranslator
     }
 
     /**
-     * @return array
+     * @return Response
      */
-    public function getLanguages(): array
+    public function getLanguages(): Response
     {
-        $result = $this->client
+        $response = $this->client
             ->get($this->getUrl('languages'))
-            ->send()
-            ->getBody();
+            ->send();
 
-        return json_decode($result, true);
+        return new Response($response, new LanguagesTransformer());
     }
 
     /**

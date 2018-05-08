@@ -1,6 +1,7 @@
 <?php
 
 namespace Wowmaking\MicrosoftTranslator\Entity;
+use Wowmaking\MicrosoftTranslator\Traits\ToArrayTrait;
 
 /**
  * Class Translation
@@ -8,6 +9,8 @@ namespace Wowmaking\MicrosoftTranslator\Entity;
  */
 class Translation implements IEntity
 {
+    use ToArrayTrait;
+
     /**
      * @var string
      */
@@ -27,6 +30,11 @@ class Translation implements IEntity
      * @var string
      */
     protected $from;
+
+    /**
+     * @var string
+     */
+    protected $detectedFrom;
 
     /**
      * @return string
@@ -80,7 +88,7 @@ class Translation implements IEntity
      */
     public function setTo(string $to)
     {
-        $this->to = $to;
+        $this->to = strtoupper($to);
 
         return $this;
     }
@@ -99,7 +107,26 @@ class Translation implements IEntity
      */
     public function setFrom(string $from)
     {
-        $this->from = $from;
+        $this->from = strtoupper($from);
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDetectedFrom(): string
+    {
+        return $this->detectedFrom;
+    }
+
+    /**
+     * @param string $detectedFrom
+     * @return mixed
+     */
+    public function setDetectedFrom(string $detectedFrom)
+    {
+        $this->detectedFrom = strtoupper($detectedFrom);
 
         return $this;
     }

@@ -67,7 +67,7 @@ class Response
      */
     public function entity(): IEntity
     {
-        return $this->transformer->transform(json_decode($this->response->getBody()));
+        return $this->transformer->transform((array)json_decode($this->response->getBody()));
     }
 
     /**

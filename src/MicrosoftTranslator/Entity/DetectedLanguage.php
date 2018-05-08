@@ -2,12 +2,16 @@
 
 namespace Wowmaking\MicrosoftTranslator\Entity;
 
+use Wowmaking\MicrosoftTranslator\Traits\ToArrayTrait;
+
 /**
  * Class DetectedLanguage
  * @package Wowmaking\MicrosoftTranslator\Entity
  */
 class DetectedLanguage implements IEntity
 {
+    use ToArrayTrait;
+
     /**
      * @var string
      */
@@ -32,7 +36,7 @@ class DetectedLanguage implements IEntity
      */
     public function setLanguage(string $language)
     {
-        $this->language = $language;
+        $this->language = strtoupper($language);
 
         return $this;
     }
