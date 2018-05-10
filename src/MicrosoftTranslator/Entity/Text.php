@@ -2,26 +2,15 @@
 
 namespace Wowmaking\MicrosoftTranslator\Entity;
 
+use Wowmaking\MicrosoftTranslator\Traits\ToArrayTrait;
+
 /**
  * Class Text
  * @package Wowmaking\MicrosoftTranslator\Entity
  */
-class Text
+class Text implements IEntity
 {
-    /**
-     * @var string
-     */
-    protected $text;
-
-    /**
-     * @var string
-     */
-    protected $to;
-
-    /**
-     * @var string
-     */
-    protected $from;
+    use ToArrayTrait;
 
     /**
      * @var DetectedLanguage
@@ -29,61 +18,9 @@ class Text
     protected $detectedLanguage;
 
     /**
-     * @return string
+     * @var Translation[]
      */
-    public function getText()
-    {
-        return $this->text;
-    }
-
-    /**
-     * @param string $text
-     * @return $this
-     */
-    public function setText(string $text)
-    {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTo()
-    {
-        return $this->to;
-    }
-
-    /**
-     * @param string $to
-     * @return $this
-     */
-    public function setTo(string $to)
-    {
-        $this->to = $to;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFrom()
-    {
-        return $this->from;
-    }
-
-    /**
-     * @param string $from
-     * @return $this
-     */
-    public function setFrom(string $from)
-    {
-        $this->from = $from;
-
-        return $this;
-    }
+    protected $translations = [];
 
     /**
      * @return DetectedLanguage
@@ -105,10 +42,33 @@ class Text
     }
 
     /**
-     * @return string
+     * @return Translation[]
      */
-    public function __toString(): string
+    public function getTranslations(): array
     {
-        return $this->text;
+        return $this->translations;
     }
+
+    /**
+     * @param Translation[] $translations
+     * @return $this
+     */
+    public function setTranslations(array $translations)
+    {
+        $this->translations = $translations;
+
+        return $this;
+    }
+
+    /**
+     * @param Translation $translation
+     * @return $this
+     */
+    public function addTranslation(Translation $translation)
+    {
+        array_push($this->translations, $translation);
+
+        return $this;
+    }
+
 }
