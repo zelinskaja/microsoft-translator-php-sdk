@@ -3,14 +3,14 @@
 namespace Wowmaking\MicrosoftTranslator\Entity\Language\Dictionary;
 
 use Wowmaking\MicrosoftTranslator\{
-    Entity\IEntity, Traits\ToArrayTrait
+    Entity\AbstractCollection, Entity\IEntity, Traits\ToArrayTrait
 };
 
 /**
  * Class TranslationCollection
- * @package Wowmaking\MicrosoftTranslator\Entity
+ * @package Wowmaking\MicrosoftTranslator\Entity\Language\Dictionary
  */
-class TranslationCollection implements IEntity
+class TranslationCollection extends AbstractCollection implements IEntity
 {
     use ToArrayTrait;
 

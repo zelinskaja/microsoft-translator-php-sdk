@@ -2,8 +2,9 @@
 
 namespace Wowmaking\MicrosoftTranslator\Transformers;
 
-use Wowmaking\MicrosoftTranslator\Entity\{
-    DetectedLanguage, IEntity, Text, TextCollection, Translation
+use Wowmaking\MicrosoftTranslator\Entity\IEntity;
+use Wowmaking\MicrosoftTranslator\Entity\Translation\{
+    DetectedLanguage, Text, TextCollection, Translation
 };
 
 /**

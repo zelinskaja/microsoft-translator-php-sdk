@@ -1,15 +1,18 @@
 <?php
 
-namespace Wowmaking\MicrosoftTranslator\Entity;
+namespace Wowmaking\MicrosoftTranslator\Entity\Translation;
+use ArrayAccess;
+use Wowmaking\MicrosoftTranslator\Entity\IEntity;
+use Wowmaking\MicrosoftTranslator\Traits\ArrayAccessForEntity;
 use Wowmaking\MicrosoftTranslator\Traits\ToArrayTrait;
 
 /**
  * Class Translation
- * @package Wowmaking\MicrosoftTranslator\Entity
+ * @package Wowmaking\MicrosoftTranslator\Entity\Translation
  */
-class Translation implements IEntity
+class Translation implements IEntity, ArrayAccess
 {
-    use ToArrayTrait;
+    use ArrayAccessForEntity, ToArrayTrait;
 
     /**
      * @var string
