@@ -39,12 +39,12 @@ class TranslationCollection extends AbstractCollection implements IEntity
     }
 
     /**
-     * @param Translation $text
+     * @param Translation $translation
      * @return $this
      */
-    public function addCollection(Translation $text)
+    public function addCollection(Translation $translation)
     {
-        array_push($this->collection, $text);
+        array_push($this->collection, $translation);
 
         return $this;
     }

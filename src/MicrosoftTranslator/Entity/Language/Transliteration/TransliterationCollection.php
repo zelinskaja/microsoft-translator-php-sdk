@@ -39,12 +39,12 @@ class TransliterationCollection extends AbstractCollection implements IEntity
     }
 
     /**
-     * @param Transliteration $text
+     * @param Transliteration $transliteration
      * @return $this
      */
-    public function addCollection(Transliteration $text)
+    public function addCollection(Transliteration $transliteration)
     {
-        array_push($this->collection, $text);
+        array_push($this->collection, $transliteration);
 
         return $this;
     }

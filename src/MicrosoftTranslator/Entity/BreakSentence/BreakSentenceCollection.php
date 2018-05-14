@@ -1,16 +1,16 @@
 <?php
 
-namespace Wowmaking\MicrosoftTranslator\Entity\Language\Dictionary;
+namespace Wowmaking\MicrosoftTranslator\Entity\BreakSentence;
 
 use Wowmaking\MicrosoftTranslator\{
     Entity\AbstractCollection, Entity\IEntity, Traits\ToArrayTrait
 };
 
 /**
- * Class TranslationCollection
- * @package Wowmaking\MicrosoftTranslator\Entity\Language\Dictionary
+ * Class BreakSentenceCollection
+ * @package Wowmaking\MicrosoftTranslator\Entity\Detected
  */
-class TranslationCollection extends AbstractCollection implements IEntity
+class BreakSentenceCollection extends AbstractCollection implements IEntity
 {
     use ToArrayTrait;
 
@@ -31,7 +31,7 @@ class TranslationCollection extends AbstractCollection implements IEntity
     }
 
     /**
-     * @return Translation[]
+     * @return BreakSentence[]
      */
     public function getCollection(): array
     {
@@ -39,12 +39,12 @@ class TranslationCollection extends AbstractCollection implements IEntity
     }
 
     /**
-     * @param Translation $translation
+     * @param BreakSentence $breakSentence
      * @return $this
      */
-    public function addCollection(Translation $translation)
+    public function addCollection(BreakSentence $breakSentence)
     {
-        array_push($this->collection, $translation);
+        array_push($this->collection, $breakSentence);
 
         return $this;
     }

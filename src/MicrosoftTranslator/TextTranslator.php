@@ -3,9 +3,9 @@
 namespace Wowmaking\MicrosoftTranslator;
 
 use Guzzle\Http\Client;
-use Wowmaking\MicrosoftTranslator\Transformers\LanguagesTransformer;
-use Wowmaking\MicrosoftTranslator\Transformers\TranslateArrayTransformer;
-use Wowmaking\MicrosoftTranslator\Transformers\TranslateTransformer;
+use Wowmaking\MicrosoftTranslator\Transformers\{
+    BreakSentenceTransformer, DetectedTransformer, LanguagesTransformer, TranslateArrayTransformer, TranslateTransformer
+};
 
 class TextTranslator
 {
@@ -83,6 +83,44 @@ class TextTranslator
             ->send();
 
         return new Response($response, new LanguagesTransformer());
+    }
+
+    /**
+     * @param array $texts
+     * @return Response
+     */
+    public function detected(array $texts): Response
+    {
+        $response = $this->client
+            ->post(
+                $this->getUrl('detect'),
+                $this->getHeaders(),
+                json_encode(array_map(function ($text) {
+                    return ['text' => $text];
+                }, array_values($texts)))
+            )
+            ->send();
+
+        return new Response($response, new DetectedTransformer());
+    }
+
+    /**
+     * @param array $texts
+     * @return Response
+     */
+    public function breakSentence(array $texts): Response
+    {
+        $response = $this->client
+            ->post(
+                $this->getUrl('breaksentence'),
+                $this->getHeaders(),
+                json_encode(array_map(function ($text) {
+                    return ['text' => $text];
+                }, array_values($texts)))
+            )
+            ->send();
+
+        return new Response($response, new BreakSentenceTransformer());
     }
 
     /**

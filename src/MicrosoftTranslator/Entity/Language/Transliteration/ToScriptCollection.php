@@ -39,12 +39,12 @@ class ToScriptCollection extends AbstractCollection implements IEntity
     }
 
     /**
-     * @param ToScript $text
+     * @param ToScript $toScript
      * @return $this
      */
-    public function addCollection(ToScript $text)
+    public function addCollection(ToScript $toScript)
     {
-        array_push($this->collection, $text);
+        array_push($this->collection, $toScript);
 
         return $this;
     }

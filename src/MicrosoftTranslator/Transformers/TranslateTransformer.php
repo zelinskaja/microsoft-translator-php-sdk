@@ -6,7 +6,6 @@ use Wowmaking\MicrosoftTranslator\Entity\{
     Translation\DetectedLanguage, Translation\Text, Translation\Translation, IEntity
 };
 
-
 /**
  * Class TranslateTransformer
  * @package Wowmaking\MicrosoftTranslator\Transformers

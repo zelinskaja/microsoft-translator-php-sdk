@@ -39,12 +39,12 @@ class ScriptCollection extends AbstractCollection implements IEntity
     }
 
     /**
-     * @param Script $text
+     * @param Script $script
      * @return $this
      */
-    public function addCollection(Script $text)
+    public function addCollection(Script $script)
     {
-        array_push($this->collection, $text);
+        array_push($this->collection, $script);
 
         return $this;
     }
