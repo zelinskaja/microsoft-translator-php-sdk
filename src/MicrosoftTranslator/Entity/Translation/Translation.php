@@ -91,7 +91,7 @@ class Translation implements IEntity, ArrayAccess
      */
     public function setTo(string $to)
     {
-        $this->to = strtoupper($to);
+        $this->to = mb_strtoupper($to);
 
         return $this;
     }
@@ -110,7 +110,7 @@ class Translation implements IEntity, ArrayAccess
      */
     public function setFrom(string $from)
     {
-        $this->from = strtoupper($from);
+        $this->from = mb_strtoupper($from);
 
         return $this;
     }
@@ -129,7 +129,7 @@ class Translation implements IEntity, ArrayAccess
      */
     public function setDetectedFrom(string $detectedFrom)
     {
-        $this->detectedFrom = strtoupper($detectedFrom);
+        $this->detectedFrom = mb_strtoupper($detectedFrom);
 
         return $this;
     }

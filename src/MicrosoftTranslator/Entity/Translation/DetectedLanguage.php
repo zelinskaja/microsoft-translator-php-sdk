@@ -37,7 +37,7 @@ class DetectedLanguage implements IEntity
      */
     public function setLanguage(string $language)
     {
-        $this->language = strtoupper($language);
+        $this->language = mb_strtoupper($language);
 
         return $this;
     }
