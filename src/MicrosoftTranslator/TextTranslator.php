@@ -143,4 +143,53 @@ class TextTranslator
             'Content-Type' => 'application/json',
         ];
     }
+
+    /**
+     * @param array $text
+     * @param string $languageCode
+     * @param string $fromScript
+     * @return array
+     */
+    public function transliterateArray(array $text, string $languageCode, string $fromScript): array
+    {
+        $arrayCount = count($text);
+        $result = [];
+        for ($i = 0; $i < $arrayCount; $i += self::TRANSLITERATE_BATCH_COUNT) {
+            $text_slice = array_slice($text, $i, self::TRANSLITERATE_BATCH_COUNT);
+            $response = $this->client
+                ->post(
+                    $this->getUrl('transliterate',
+                        ['language' => $languageCode, 'fromScript' => $fromScript, 'toScript' => 'Latn']),
+                    $this->getHeaders(),
+                    json_encode(array_map(function ($item) {
+                        return ['text' => $item];
+                    }, array_values($text_slice)))
+                )
+                ->send();
+            $result = array_merge($result, $response->json());
+        }
+
+        return $result;
+    }
+
+    /**
+     * @return array ['ja' => 'Jpan' , ...]
+     */
+    public function getSupportedLanguagesForTransliteration()
+    {
+        $response = $this->client->get(
+            $this->getUrl('languages',
+                ['scope' => 'transliteration']),
+            ['Content-Type' => 'application/json']
+        )->send();
+        $transliteration = $response->json()['transliteration'];
+        $code_arr = [];
+        foreach ($transliteration as $code => $arr) {
+            $fromScript = $transliteration[$code]['scripts'][0]['code'];
+            $code_arr[$code] = $fromScript;
+
+        }
+        return $code_arr;
+    }
+
 }
