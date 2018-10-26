@@ -23,13 +23,14 @@ class TextTranslator
     protected $key;
 
     /**
-     * Translator constructor.
-     *
+     * TextTranslator constructor.
      * @param string $key
+     * @param string $baseUrl
+     * @param null $config
      */
-    public function __construct(string $key)
+    public function __construct(string $key, $baseUrl = '', $config = null)
     {
-        $this->client = new Client();
+        $this->client = new Client($baseUrl, $config);
         $this->key = $key;
     }
 

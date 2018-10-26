@@ -12,9 +12,9 @@ class TestCase extends PHPUnit_Framework_TestCase
         parent::tearDownAfterClass();
     }
 
-	protected function tearDown()
-	{
-		Mockery::close();
-	}
+    protected function tearDown()
+    {
+        Mockery::close();
+    }
 }
 
