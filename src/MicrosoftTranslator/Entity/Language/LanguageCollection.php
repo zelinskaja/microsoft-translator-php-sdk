@@ -12,7 +12,7 @@ use Wowmaking\MicrosoftTranslator\{
 
 /**
  * Class LanguageCollection
- * @package Wowmaking\MicrosoftTranslator\Entity
+ * @package Wowmaking\MicrosoftTranslator\Entity\Language
  */
 class LanguageCollection implements IEntity
 {

@@ -3,14 +3,14 @@
 namespace Wowmaking\MicrosoftTranslator\Entity\Language\Transliteration;
 
 use Wowmaking\MicrosoftTranslator\{
-    Entity\IEntity, Traits\ToArrayTrait
+    Entity\AbstractCollection, Entity\IEntity, Traits\ToArrayTrait
 };
 
 /**
  * Class ToScriptCollection
- * @package Wowmaking\MicrosoftTranslator\Entity
+ * @package Wowmaking\MicrosoftTranslator\Entity\Language\Transliteration
  */
-class ToScriptCollection implements IEntity
+class ToScriptCollection extends AbstractCollection implements IEntity
 {
     use ToArrayTrait;
 
@@ -39,12 +39,12 @@ class ToScriptCollection implements IEntity
     }
 
     /**
-     * @param ToScript $text
+     * @param ToScript $toScript
      * @return $this
      */
-    public function addCollection(ToScript $text)
+    public function addCollection(ToScript $toScript)
     {
-        array_push($this->collection, $text);
+        array_push($this->collection, $toScript);
 
         return $this;
     }

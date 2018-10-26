@@ -8,7 +8,7 @@ use Wowmaking\MicrosoftTranslator\{
 
 /**
  * Class ToScript
- * @package Wowmaking\MicrosoftTranslator\Entity
+ * @package Wowmaking\MicrosoftTranslator\Entity\Language\Transliteration
  */
 class ToScript implements IEntity
 {

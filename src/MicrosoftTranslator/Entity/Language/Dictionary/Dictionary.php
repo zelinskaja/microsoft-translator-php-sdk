@@ -8,7 +8,7 @@ use Wowmaking\MicrosoftTranslator\{
 
 /**
  * Class Dictionary
- * @package Wowmaking\MicrosoftTranslator\Entity
+ * @package Wowmaking\MicrosoftTranslator\Entity\Language\Dictionary
  */
 class Dictionary implements IEntity
 {

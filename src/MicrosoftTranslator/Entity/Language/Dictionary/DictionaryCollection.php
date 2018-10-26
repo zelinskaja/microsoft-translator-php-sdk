@@ -3,14 +3,14 @@
 namespace Wowmaking\MicrosoftTranslator\Entity\Language\Dictionary;
 
 use Wowmaking\MicrosoftTranslator\{
-    Entity\IEntity, Traits\ToArrayTrait
+    Entity\AbstractCollection, Entity\IEntity, Traits\ToArrayTrait
 };
 
 /**
  * Class DictionaryCollection
- * @package Wowmaking\MicrosoftTranslator\Entity
+ * @package Wowmaking\MicrosoftTranslator\Entity\Language\Dictionary
  */
-class DictionaryCollection implements IEntity
+class DictionaryCollection extends AbstractCollection implements IEntity
 {
     use ToArrayTrait;
 
@@ -39,12 +39,12 @@ class DictionaryCollection implements IEntity
     }
 
     /**
-     * @param Dictionary $text
+     * @param Dictionary $dictionary
      * @return $this
      */
-    public function addCollection(Dictionary $text)
+    public function addCollection(Dictionary $dictionary)
     {
-        array_push($this->collection, $text);
+        array_push($this->collection, $dictionary);
 
         return $this;
     }

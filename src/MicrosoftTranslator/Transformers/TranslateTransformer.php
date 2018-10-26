@@ -3,7 +3,7 @@
 namespace Wowmaking\MicrosoftTranslator\Transformers;
 
 use Wowmaking\MicrosoftTranslator\Entity\{
-    DetectedLanguage, IEntity, Text, Translation
+    Translation\DetectedLanguage, Translation\Text, Translation\Translation, IEntity
 };
 
 /**
@@ -43,12 +43,22 @@ class TranslateTransformer implements ITransformer
         $array = array_pop($data);
 
         /**
-         * @var DetectedLanguage $detectedLanguage
+         * @var Text $text
          */
-        $detectedLanguage = new DetectedLanguage();
-        $detectedLanguage
-            ->setLanguage($array->detectedLanguage->language)
-            ->setScore($array->detectedLanguage->score);
+        $text = new Text();
+
+        if (isset($array->detectedLanguage)) {
+            /**
+             * @var DetectedLanguage $detectedLanguage
+             */
+            $detectedLanguage = new DetectedLanguage();
+            $detectedLanguage
+                ->setLanguage($array->detectedLanguage->language)
+                ->setScore($array->detectedLanguage->score);
+
+            $text
+                ->setDetectedLanguage($detectedLanguage);
+        }
 
         /**
          * @var Translation $translation
@@ -57,17 +67,11 @@ class TranslateTransformer implements ITransformer
         $translation
             ->setSource($this->text)
             ->setFrom((string)$this->from)
-            ->setDetectedFrom($array->detectedLanguage->language)
+            ->setDetectedFrom($array->detectedLanguage->language ?? '')
             ->setTo($array->translations[0]->to)
             ->setText($array->translations[0]->text);
 
-        /**
-         * @var Text $text
-         */
-        $text = new Text();
-        $text
-            ->setDetectedLanguage($detectedLanguage)
-            ->addTranslation($translation);
+        $text->addTranslation($translation);
 
         return $text;
     }

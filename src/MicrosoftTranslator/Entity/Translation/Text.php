@@ -1,12 +1,13 @@
 <?php
 
-namespace Wowmaking\MicrosoftTranslator\Entity;
+namespace Wowmaking\MicrosoftTranslator\Entity\Translation;
 
+use Wowmaking\MicrosoftTranslator\Entity\IEntity;
 use Wowmaking\MicrosoftTranslator\Traits\ToArrayTrait;
 
 /**
  * Class Text
- * @package Wowmaking\MicrosoftTranslator\Entity
+ * @package Wowmaking\MicrosoftTranslator\Entity\Translation
  */
 class Text implements IEntity
 {

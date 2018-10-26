@@ -1,15 +1,18 @@
 <?php
 
-namespace Wowmaking\MicrosoftTranslator\Entity;
+namespace Wowmaking\MicrosoftTranslator\Entity\Translation;
+use ArrayAccess;
+use Wowmaking\MicrosoftTranslator\Entity\IEntity;
+use Wowmaking\MicrosoftTranslator\Traits\ArrayAccessForEntity;
 use Wowmaking\MicrosoftTranslator\Traits\ToArrayTrait;
 
 /**
  * Class Translation
- * @package Wowmaking\MicrosoftTranslator\Entity
+ * @package Wowmaking\MicrosoftTranslator\Entity\Translation
  */
-class Translation implements IEntity
+class Translation implements IEntity, ArrayAccess
 {
-    use ToArrayTrait;
+    use ArrayAccessForEntity, ToArrayTrait;
 
     /**
      * @var string
@@ -88,7 +91,7 @@ class Translation implements IEntity
      */
     public function setTo(string $to)
     {
-        $this->to = strtoupper($to);
+        $this->to = mb_strtoupper($to);
 
         return $this;
     }
@@ -107,7 +110,7 @@ class Translation implements IEntity
      */
     public function setFrom(string $from)
     {
-        $this->from = strtoupper($from);
+        $this->from = mb_strtoupper($from);
 
         return $this;
     }
@@ -126,7 +129,7 @@ class Translation implements IEntity
      */
     public function setDetectedFrom(string $detectedFrom)
     {
-        $this->detectedFrom = strtoupper($detectedFrom);
+        $this->detectedFrom = mb_strtoupper($detectedFrom);
 
         return $this;
     }
